@@ -1,5 +1,5 @@
 import { Menu } from "../components"
-import { Footer, Team, Testimonials } from "../container"
+import { Footer, Team, Testimonials, CaseStudies } from "../container"
 
 const Testimonial = () => {
   return (
@@ -7,6 +7,7 @@ const Testimonial = () => {
       <Menu />
       <Team />
       <Testimonials />
+      <CaseStudies />
       <Footer />
     </div>
   )

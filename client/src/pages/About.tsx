@@ -1,5 +1,5 @@
 import { Menu } from "../components"
-import { CaseStudies, Cta, Footer, Process } from "../container"
+import { Cta, Footer, Process, Team } from "../container"
 
 const About = () => {
   return (
@@ -7,7 +7,7 @@ const About = () => {
       <Menu />
       <Cta className="custom-container"/>
       <Process />
-      <CaseStudies />
+      <Team />
       <Footer />
     </div>
   )

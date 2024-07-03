@@ -12,22 +12,39 @@ const Contact = ({ hideHeader, className }: Props) => {
   const [values, setValues] = useState({
     name: "",
     phone: "",
-    age: 0,
+    age: "",
     education: "",
     prevAttendance: "",
   });
+  const [ message, setMessage ] = useState("");
+
 
   function handleChange(event) {
-    setValues({ ...values, [event.target.name]: event.target.value });
+    setValues({ ...values, [event.currentTarget.name]: event.currentTarget.value });
   }
 
-  function handleSubmit(event: FormEvent) {
+  function validatePhoneNumber(phone: string) {
+    const phoneRegex = /^\d{10}$/;
+    return phoneRegex.test(phone);
+  }
+
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    console.log(values);
+    if (!validatePhoneNumber(values.phone)) {
+      alert("Invalid Phone Number");
+      event.preventDefault();
+      return;
+    }
     try {
-      axios.post("http://localhost:8080/register", { values });
+      const response = await axios.post("http://localhost:8080/register", { values });
+      setMessage(response.data.message);
     } catch (err) {
-      console.log(err);
+      if (axios.isAxiosError(err) && err.response?.data.message) {
+        setMessage(err.response.data.message);
+        event.preventDefault();
+      } else {
+        console.log(err);
+      }
     }
   }
 
@@ -39,42 +56,48 @@ const Contact = ({ hideHeader, className }: Props) => {
           text="Connect with Us: Let's Explore How Our Generational Empowerment Program Can Support You"
         />
       )}
-
       <div className="contact" id="quote">
         <div className="row">
           <div className="col-md-6 col-12">
+            {message === "Phone number is already registered" ? <p className="text-danger">{message}</p> : <p className="text-success">{message}</p>}
             <form onSubmit={(event) => handleSubmit(event)}>
-              <div>
-                <label
-                  htmlFor=""
-                  className="form-label"
-                  style={{ marginRight: "20px" }}
-                >
-                  Did you attend GEP previously?
-                </label>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="prevAttendance"
-                    id="inlineRadio1"
-                    value="yes"
-                    onClick={(event) => handleChange(event)}
-                  />
-                  <label className="form-check-label">Yes</label>
+              {hideHeader ? (
+                <div>
+                  <label
+                    htmlFor=""
+                    className="form-label"
+                    style={{ marginRight: "20px" }}
+                  >
+                    Did you attend GEP previously?
+                  </label>
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="prevAttendance"
+                      id="inlineRadio1"
+                      value="yes"
+                      onClick={(event) => handleChange(event)}
+                      required
+                    />
+                    <label className="form-check-label">Yes</label>
+                  </div>
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="prevAttendance"
+                      id="inlineRadio2"
+                      value="no"
+                      onClick={(event) => handleChange(event)}
+                      required
+                    />
+                    <label className="form-check-label">No</label>
+                  </div>
                 </div>
-                <div className="form-check form-check-inline">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="prevAttendance"
-                    id="inlineRadio2"
-                    value="no"
-                    onClick={handleChange}
-                  />
-                  <label className="form-check-label">No</label>
-                </div>
-              </div>
+              ) : (
+                <h3>Send us a message:</h3>
+              )}
 
               <div className="form-group">
                 <label>Full Name*</label>
@@ -83,7 +106,9 @@ const Contact = ({ hideHeader, className }: Props) => {
                   className="form-control"
                   type="text"
                   placeholder="Name"
-                  onChange={handleChange}
+                  value={values.name}
+                  onChange={(event) => handleChange(event)}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -93,7 +118,9 @@ const Contact = ({ hideHeader, className }: Props) => {
                   className="form-control"
                   type="number"
                   placeholder="Phone Number"
-                  onChange={handleChange}
+                  value={values.phone}
+                  onChange={(event) => handleChange(event)}
+                  required
                 />
               </div>
               {hideHeader ? (
@@ -105,7 +132,9 @@ const Contact = ({ hideHeader, className }: Props) => {
                       className="form-control"
                       type="number"
                       placeholder="Age"
-                      onChange={handleChange}
+                      value={values.age}
+                      onChange={(event) => handleChange(event)}
+                      required
                     />
                   </div>
                   <div className=" mini-input-item">
@@ -113,9 +142,10 @@ const Contact = ({ hideHeader, className }: Props) => {
                     <select
                       name="education"
                       className="form-select"
-                      onClick={handleChange}
+                      onClick={(event) => handleChange(event)}
+                      required
                     >
-                      <option></option>
+                      <option selected></option>
                       <option value="high-school">HighSchool</option>
                       <option value="bachelor">Bachelor's degree</option>
                       <option value="masters">Master's degree</option>
@@ -131,6 +161,7 @@ const Contact = ({ hideHeader, className }: Props) => {
                   <textarea
                     className="form-control"
                     id="exampleFormControlTextarea1"
+                    required
                   ></textarea>
                 </div>
               )}
