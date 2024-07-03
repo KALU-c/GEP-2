@@ -1,0 +1,24 @@
+.cta {
+  background: #f3f3f3;
+  border-radius: 45px;
+  position: relative;
+  padding: 4rem 3rem;
+}
+
+.custom-container {
+  height: 60vh;
+  margin: -50px 0px;
+}
+
+.cta img {
+  margin-top: -100px;
+  position: absolute;
+}
+
+@media (max-width: 960px) {
+  .cta {
+    padding: 2rem;
+    text-align: center;
+    margin: 4rem 1rem;
+  }
+}

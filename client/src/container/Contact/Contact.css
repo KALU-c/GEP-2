@@ -1,0 +1,58 @@
+.contact {
+  width: 100%;
+  background: #f3f3f3 url(../../assets/contact.png) no-repeat;
+  background-size: contain;
+  background-position: right center;
+  border-radius: 45px;
+  padding: 5rem 3rem;
+  margin-bottom: 6rem;
+}
+
+.form-select {
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 14px;
+    padding: 15px;
+}
+
+.form-select option {
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 14px;
+}
+
+.form-group {
+  margin: 1.5rem 0;
+}
+
+.form-group input,
+.form-group textarea {
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 14px;
+}
+
+.mini-input {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.mini-input-item {
+  width: 270px;
+}
+
+.mini-input-item input {
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    background: #f3f3f3;
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+  }
+}
