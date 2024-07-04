@@ -17,6 +17,7 @@ const Contact = ({ hideHeader, className }: Props) => {
     prevAttendance: "",
   });
   const [message, setMessage] = useState("");
+  axios.defaults.withCredentials = true;
 
   function handleChange(event) {
     setValues({
