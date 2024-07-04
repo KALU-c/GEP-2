@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const uri = process.env.MONGO_DB;
 
 app.use(cors({
-  origin: ["https://gep-frontend.vercel.app/"],
+  origin: ["https://gep-frontend.vercel.app"],
   methods: ["POST", "GET"],
   credentials: true
 }));
