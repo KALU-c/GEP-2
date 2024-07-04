@@ -16,11 +16,13 @@ const Contact = ({ hideHeader, className }: Props) => {
     education: "",
     prevAttendance: "",
   });
-  const [ message, setMessage ] = useState("");
-
+  const [message, setMessage] = useState("");
 
   function handleChange(event) {
-    setValues({ ...values, [event.currentTarget.name]: event.currentTarget.value });
+    setValues({
+      ...values,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
   }
 
   function validatePhoneNumber(phone: string) {
@@ -28,16 +30,35 @@ const Contact = ({ hideHeader, className }: Props) => {
     return phoneRegex.test(phone);
   }
 
+  function validateAge(age: string) {
+    const ageRegex = /^\d{2}$/;
+    return ageRegex.test(age);
+  }
+
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     if (!validatePhoneNumber(values.phone)) {
-      alert("Invalid Phone Number");
+      setMessage("Invalid phone number");
+      event.preventDefault();
+      return;
+    }
+    if (!validateAge(values.age)) {
+      setMessage(`Age can not be ${values.age.length} character(s)`);
       event.preventDefault();
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8080/register", { values });
+      const response = await axios.post("http://localhost:8080/register", {
+        values,
+      });
       setMessage(response.data.message);
+      setValues({
+        name: "",
+        phone: "",
+        age: "",
+        education: "",
+        prevAttendance: "",
+      });
     } catch (err) {
       if (axios.isAxiosError(err) && err.response?.data.message) {
         setMessage(err.response.data.message);
@@ -59,7 +80,11 @@ const Contact = ({ hideHeader, className }: Props) => {
       <div className="contact" id="quote">
         <div className="row">
           <div className="col-md-6 col-12">
-            {message === "Phone number is already registered" ? <p className="text-danger">{message}</p> : <p className="text-success">{message}</p>}
+            {message === "User added successfully!" ? (
+              <p className="text-success font-weight-bold">{message}</p>
+            ) : (
+              <p className="text-danger font-weight-bold">{message}</p>
+            )}
             <form onSubmit={(event) => handleSubmit(event)}>
               {hideHeader ? (
                 <div>

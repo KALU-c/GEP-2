@@ -8,8 +8,8 @@ const userSchema = new Schema({
   age: {
     type: Number,
     required: true,
-    min: 5,
-    max: 70
+    min: [5, "User must be at least 5 years old"],
+    max: [70, "User can not be greater than 70 years old"]
   },
   phone: {
     type: Number,
