@@ -25,9 +25,8 @@ const Footer = () => {
           <ul className="info-contact">
             <li> <span>Contact us:</span></li>
             <li>Email: hmyc@gmail.com</li>
-            <li>Phone: +251-912-345-678</li>
-            <li>Address: Kela,
-              Hossana City, Ethiopia</li>
+            <li>Phone: +251-900-000-000</li>
+            <li>Address: Hossana, Ethiopia</li>
           </ul>
         </div>
         <div className="col-md-8 col-12">
