@@ -48,7 +48,7 @@ const Contact = ({ hideHeader, className }: Props) => {
       return;
     }
     try {
-      const response = await axios.post("gep-api.vercel.app", {
+      const response = await axios.post("gep-api.vercel.app/register", {
         values,
       });
       setMessage(response.data.message);
