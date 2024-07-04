@@ -1,4 +1,14 @@
-import { Testimonials, CaseStudies, Contact, Footer, Hero, Process, Programs, Team , Cta} from '../container/index.ts';
+import { 
+  Testimonials, 
+  CaseStudies, 
+  // Contact, 
+  Footer, 
+  Hero, 
+  Process, 
+  Programs, 
+  Team , 
+  Cta
+} from '../container/index.ts';
 import { Menu } from '../components';
 
 const Home = () => {
@@ -13,7 +23,7 @@ const Home = () => {
     <Process />
     <Team />
     <Testimonials />
-    <Contact className='section-padding'/>
+    {/* <Contact className='section-padding'/> */}
     <Footer />
   </div>
   )
