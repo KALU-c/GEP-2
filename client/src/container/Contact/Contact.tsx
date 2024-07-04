@@ -80,7 +80,7 @@ const Contact = ({ hideHeader, className }: Props) => {
       <div className="contact" id="quote">
         <div className="row">
           <div className="col-md-6 col-12">
-            {message === "User added successfully!" ? (
+            {message === "User registered successfully" ? (
               <p className="text-success font-weight-bold">{message}</p>
             ) : (
               <p className="text-danger font-weight-bold">{message}</p>

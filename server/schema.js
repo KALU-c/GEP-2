@@ -19,7 +19,11 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  prevAttendance: String
+  prevAttendance: String,
+  registrationDate: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 export const User = model("User", userSchema);

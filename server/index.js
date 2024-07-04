@@ -4,14 +4,17 @@ import cors from 'cors';
 import { json } from 'express';
 import mongoose from 'mongoose';
 import { User } from './schema.js';
+import dotenv from 'dotenv';
 
-const app = express();
-const PORT = 8080;
+dotenv.config();
+const app = express({ path: '.env' });
+const PORT = process.env.PORT || 3000;
+const uri = process.env.MONGO_DB;
 
 app.use(cors());
 app.use(json());
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect("mongodb://localhost:27017/GEP");
+await mongoose.connect(uri);
 
 async function createUser(userData) {
   const newUser = new User(userData);
@@ -19,7 +22,6 @@ async function createUser(userData) {
   try {
     await newUser.save();
     console.log("User added successfully!");
-    // mongoose.connection.close();
   } catch(err) {
     console.log(err);
   }
