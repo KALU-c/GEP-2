@@ -11,7 +11,12 @@ const app = express({ path: '.env' });
 const PORT = process.env.PORT || 3000;
 const uri = process.env.MONGO_DB;
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://deploy-mern-1whq.vercel.app"],
+  methods: ["POST", "GET"],
+  credentials: true
+}));
+
 app.use(json());
 app.use(bodyParser.urlencoded({ extended: true }));
 await mongoose.connect(uri);
