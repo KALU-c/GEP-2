@@ -5,6 +5,7 @@ import { json } from 'express';
 import mongoose from 'mongoose';
 import { User } from './schema.js';
 import dotenv from 'dotenv';
+import morgan from 'morgan';
 
 dotenv.config();
 const app = express({ path: '.env' });
@@ -16,7 +17,7 @@ app.use(cors({
   methods: ["POST", "GET"],
   credentials: true
 }));
-
+app.use(morgan("dev"));
 app.use(json());
 app.use(bodyParser.urlencoded({ extended: true }));
 await mongoose.connect(uri);
