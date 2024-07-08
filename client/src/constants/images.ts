@@ -1,11 +1,5 @@
 import thingshappen  from '../assets/thingshappen.png';
 import contact  from '../assets/contact.png';
-import logo01  from '../assets/logo01.png';
-import logo02  from '../assets/logo02.png';
-import logo03  from '../assets/logo03.png';
-import logo04  from '../assets/logo04.png';
-import logo05  from '../assets/logo05.png';
-import logo06  from '../assets/logo06.png';
 import services01  from '../assets/services01.png';
 import services02  from '../assets/services02.png';
 import services03  from '../assets/services03.png';
@@ -25,12 +19,6 @@ import gepLogoWhite from '../assets/gepLogoWhite.png';
 export default{
 thingshappen,
 contact,
-logo01,
-logo02,
-logo03,
-logo04,
-logo05,
-logo06,
 services01,
 services02,
 services03,
