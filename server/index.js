@@ -17,7 +17,7 @@ app.use(cors({
   methods: ["POST", "GET"],
   credentials: true
 }));
-app.use(morgan("dev"));
+app.use(morgan("tiny"));
 app.use(json());
 app.use(bodyParser.urlencoded({ extended: true }));
 await mongoose.connect(uri);
