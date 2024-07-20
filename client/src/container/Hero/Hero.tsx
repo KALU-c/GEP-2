@@ -1,5 +1,5 @@
 import { images } from '../../constants';
-import {IconScroll} from '../../components';
+// import {IconScroll} from '../../components';
 import './Hero.css';
 import useCustomNavigate from '../../Hooks/useCustomNavigate';
 
@@ -19,7 +19,7 @@ const Hero = () => {
           <img className="img-fluid" src={images.hero} alt="design" />
         </div>
       </div>
-      <IconScroll />
+      {/* <IconScroll /> */}
     </div>
     
   )

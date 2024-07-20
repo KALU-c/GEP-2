@@ -22,12 +22,12 @@
 .nav-link:hover {
   background: var(--color-highlight);
   border-radius: 5px;
-  color: var(--color-text);
+  color: var(--color-grey);
 }
 
 .nav-link:last-child:hover {
   background: var(--color-highlight);
-  color: var(--color-text);
+  color: var(--color-grey);
 }
 
 @media (max-width: 991px) {

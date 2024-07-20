@@ -8,7 +8,7 @@ interface Props {
 const Headings = ({ title, text }: Props) => {
   return (
     <div className="headings">
-      <h3>{title}</h3>
+      <h3 style={{ color: "white" }}>{title}</h3>
       <p>{text}</p>
     </div>
   );

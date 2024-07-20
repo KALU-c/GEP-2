@@ -3,7 +3,7 @@
 :root {
   --font-base: "Space Grotesk", sans-serif;
   --color-text: #000000;
-  --color-highlight: #2c698d;
+  --color-highlight: #13315C;
   --color-dark: #191a23;
   --color-grey: #f3f3f3;
 }
@@ -75,7 +75,7 @@ input[type="text"] {
   font-weight: 400;
   font-size: 20px;
   line-height: 28px;
-  background: #191a23;
+  background: #13315C;
   border-radius: 14px;
   border: none;
   color: #fff;

@@ -44,15 +44,18 @@
 }
 
 .blight span {
-    background: var(--color-highlight);
+    /* background: var(--color-highlight); */
+    color: var(--color-dark);
 }
 
 .bgreen span {
-    background: var(--color-grey);
+    /* background: var(--color-grey); */
+    color: var(--color-grey);
 }
 
 .bdark span {
-    background: var(--color-grey);
+    /* background: var(--color-grey); */
+    color: var(--color-grey);
 }
 
 .readmore {
@@ -71,7 +74,9 @@
 }
 
 .bdark .readmore,
-.bdark .readmore svg {
+.bgreen .readmore,
+.bdark .readmore svg,
+.bgreen .readmore svg {
     color: #fff;
 }
 
