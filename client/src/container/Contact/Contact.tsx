@@ -12,11 +12,13 @@ const Contact = ({ hideHeader, className }: Props) => {
   const [values, setValues] = useState({
     name: "",
     phone: "",
+    email: "",
     age: "",
     education: "",
     prevAttendance: "",
   });
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   axios.defaults.withCredentials = true;
 
   function handleChange(event) {
@@ -49,13 +51,16 @@ const Contact = ({ hideHeader, className }: Props) => {
       return;
     }
     try {
+      setLoading(true);
       const response = await axios.post("https://gep-api.vercel.app/register", {
         values,
       });
+      setLoading(false);
       setMessage(response.data.message);
       setValues({
         name: "",
         phone: "",
+        email: "",
         age: "",
         education: "",
         prevAttendance: "",
@@ -81,6 +86,15 @@ const Contact = ({ hideHeader, className }: Props) => {
       <div className="contact" id="quote">
         <div className="row">
           <div className="col-md-6 col-12">
+            {loading && (
+              <div className="loading">
+                <div className="spinner-border spinner-border-sm" role="status">
+                  <span className="sr-only"></span>
+                </div>
+                <p>Registering...</p>
+              </div>
+            )}
+
             {message === "User registered successfully" ? (
               <p className="text-success font-weight-bold">{message}</p>
             ) : (
@@ -144,6 +158,18 @@ const Contact = ({ hideHeader, className }: Props) => {
                   className="form-control"
                   type="number"
                   placeholder="Phone Number"
+                  value={values.phone}
+                  onChange={(event) => handleChange(event)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Email*</label>
+                <input
+                  name="email"
+                  className="form-control"
+                  type="email"
+                  placeholder="Email"
                   value={values.phone}
                   onChange={(event) => handleChange(event)}
                   required

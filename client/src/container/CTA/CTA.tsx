@@ -13,7 +13,7 @@ const Cta = ({ className }: Props) => {
       <div className={className + " row cta"}>
         <div className="col-lg-8 col-12">
           <h3>Join Us for Spiritual Growth</h3>
-
+          
           <p className="pt-2 pb-4">
             Contact us today to learn more about how our Generational
             Empowerment Program (GEP) can nurture your spiritual development and

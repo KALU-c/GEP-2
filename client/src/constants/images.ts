@@ -15,6 +15,8 @@ import team01 from '../assets/team01.png';
 import hero from '../assets/hero.png';
 import gepLogo from '../assets/gepLogo.png';
 import gepLogoWhite from '../assets/gepLogoWhite.png';
+import test1 from "../assets/test1.jpg";
+import test2 from "../assets/test2.jpg";
 
 export default{
 thingshappen,
@@ -34,4 +36,6 @@ team01,
 hero,
 gepLogo,
 gepLogoWhite,
+test1,
+test2,
 };

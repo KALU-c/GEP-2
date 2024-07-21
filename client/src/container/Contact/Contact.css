@@ -56,3 +56,15 @@
     margin-bottom: 3rem;
   }
 }
+
+.loading {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: rgb(0, 96, 128);
+}
+
+.loading p {
+  margin: 0;
+  font-size: 20px;
+}

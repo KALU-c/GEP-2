@@ -10,6 +10,7 @@ const useCustomNavigate = () => {
   const goToRegister = () => navigate("/register");
   const customNavigate = (link: string) => navigate(`/${link}`);
   const goToError500 = () => navigate("/error500");
+  const goToCourses = () => navigate("/courses")
 
   return {
     goToHome,
@@ -18,7 +19,8 @@ const useCustomNavigate = () => {
     goToRegister,
     goToTestimonial,
     customNavigate,
-    goToError500
+    goToError500,
+    goToCourses
   }
 }
 export default useCustomNavigate

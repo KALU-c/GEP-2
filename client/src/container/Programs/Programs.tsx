@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Services = ({ hideHeader }: Props) => {
-  const { goToPrograms } = useCustomNavigate();
+  const { goToCourses } = useCustomNavigate();
 
   return (
     <div id="services" className="d-block pt-md-4">
@@ -31,7 +31,7 @@ const Services = ({ hideHeader }: Props) => {
                     <span>{titleone} </span>
                     <span>{titletwo}</span>
                   </div>
-                  <div className="readmore" onClick={goToPrograms}>
+                  <div className="readmore" onClick={goToCourses}>
                     {" "}
                     <BsFillArrowUpRightCircleFill /> Learn more{" "}
                   </div>
