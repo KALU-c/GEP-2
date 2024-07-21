@@ -1,5 +1,5 @@
 export default sendEmail = (name) =>
-  (html = `
+  (`
   <!doctype html>
 <html lang="en">
   <head>
