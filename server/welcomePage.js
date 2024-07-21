@@ -1,4 +1,4 @@
-export default sendEmail = (name) =>
+export const sendEmail = (name) =>
   (`
   <!doctype html>
 <html lang="en">

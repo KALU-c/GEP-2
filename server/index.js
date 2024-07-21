@@ -7,9 +7,8 @@ import { User } from './schema.js';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import nodemailer from 'nodemailer';
-import welcomePage from './welcomePage.js';
+import { sendEmail } from './welcomePage.js';
 
-const { sendEmail } = welcomePage;
 
 dotenv.config();
 const app = express({ path: '.env' });
