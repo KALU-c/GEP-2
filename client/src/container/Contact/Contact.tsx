@@ -170,7 +170,7 @@ const Contact = ({ hideHeader, className }: Props) => {
                   className="form-control"
                   type="email"
                   placeholder="Email"
-                  value={values.phone}
+                  value={values.email}
                   onChange={(event) => handleChange(event)}
                   required
                 />
