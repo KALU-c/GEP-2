@@ -57,6 +57,7 @@ const Contact = ({ hideHeader, className }: Props) => {
       });
       setLoading(false);
       setMessage(response.data.message);
+      setTimeout(() => setMessage(''), 10000);
       setValues({
         name: "",
         phone: "",
@@ -67,7 +68,9 @@ const Contact = ({ hideHeader, className }: Props) => {
       });
     } catch (err) {
       if (axios.isAxiosError(err) && err.response?.data.message) {
+        setLoading(false);
         setMessage(err.response.data.message);
+        setTimeout(() => setMessage(''), 10000);
         event.preventDefault();
       } else {
         console.log(err);

@@ -7,6 +7,9 @@ import { User } from './schema.js';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import nodemailer from 'nodemailer';
+import welcomePage from './welcomePage.js';
+
+const { sendEmail } = welcomePage;
 
 dotenv.config();
 const app = express({ path: '.env' });
@@ -40,7 +43,7 @@ async function createUser(userData) {
   try {
     await newUser.save();
     console.log("User added successfully!");
-    await sendConfirmationEmail(userData.email);
+    await sendConfirmationEmail(userData.email, userData.name);
   } catch(err) {
     console.log(err);
   }
@@ -57,13 +60,14 @@ async function checkUser(userData) {
   }
 }
 
-async function sendConfirmationEmail(email) {
+async function sendConfirmationEmail(email, name) {
+  const html = await sendEmail(name);
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
     subject: 'Registration Confirmation',
     text: 'Thank you for registering!',
-    html: '<h1>Welcome!</h1><p>Thank you for registering!</p><p><em>GEP | HMYC</em></p>'
+    html: html
   };
 
   try {
