@@ -59,10 +59,11 @@ async function checkUser(userData) {
   }
 }
 
-async function sendConfirmationEmail(email, name) {
-  const html = await sendEmail(name);
+async function sendConfirmationEmail(email, name, age, phone, education) {
+  const html = sendEmail(name, email, age, phone, education);
+  let from = `GEP <endekaluzemenu2134@gmail.com>`
   const mailOptions = {
-    from: process.env.EMAIL_USER,
+    from: from,
     to: email,
     subject: 'Registration Confirmation',
     text: 'Thank you for registering!',

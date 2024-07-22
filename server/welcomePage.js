@@ -40,6 +40,8 @@ export const sendEmail = (name, age, education, email, phone) =>
         margin: 0;
         padding: 0;
         padding-bottom: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
       }
 
       .body {
@@ -422,4 +424,4 @@ export const sendEmail = (name, age, education, email, phone) =>
     </table>
   </body>
 </html>
-`);
+  `);
