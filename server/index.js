@@ -42,7 +42,7 @@ async function createUser(userData) {
   try {
     await newUser.save();
     console.log("User added successfully!");
-    await sendConfirmationEmail(userData.email, userData.name, userData.phone, userData.age, userData.education);
+    await sendConfirmationEmail(userData.name, userData.age, userData.education, userData.email, userData.phone);
   } catch(err) {
     console.log(err);
   }
@@ -59,8 +59,8 @@ async function checkUser(userData) {
   }
 }
 
-async function sendConfirmationEmail(email, name, age, phone, education) {
-  const html = sendEmail(name, email, age, phone, education);
+async function sendConfirmationEmail(name, age, education, email, phone) {
+  const html = sendEmail(name, age, education, email, phone);
   let from = `GEP <endekaluzemenu2134@gmail.com>`
   const mailOptions = {
     from: from,

@@ -4,7 +4,7 @@ export const sendEmail = (name, age, education, email, phone) =>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Simple Transactional Email</title>
+    <title>GEP Email Verification</title>
     <style media="all" type="text/css">
       /* -------------------------------------
     GLOBAL RESETS
@@ -85,6 +85,7 @@ export const sendEmail = (name, age, education, email, phone) =>
         padding-top: 24px;
         text-align: center;
         width: 100%;
+        padding-bottom: 30px;
       }
 
       .footer td,
@@ -327,7 +328,7 @@ export const sendEmail = (name, age, education, email, phone) =>
               <!-- START MAIN CONTENT AREA -->
               <tr>
                 <td class="wrapper">
-                  <p>Hi ${name}</p>
+                  <p>Hi ${name},</p>
                   <p>
                     Thank you for registering with us! We are pleased to inform
                     you that your registration was successful.
@@ -359,7 +360,7 @@ export const sendEmail = (name, age, education, email, phone) =>
                             role="presentation"
                             border="0"
                             cellpadding="0"
-                            cellspacing="0"
+                            cellspacing="10"
                           >
                             <tbody>
                               <tr>
@@ -367,13 +368,29 @@ export const sendEmail = (name, age, education, email, phone) =>
                                   <a
                                     href="https://gep-frontend.vercel.app"
                                     target="_blank"
-                                    >Visit Us</a
+                                    >Website</a
+                                  >
+                                </td>
+                                <td>
+                                  <a
+                                    href="https://www.tiktok.com/@hosana.mekane.yesus?is_from_webapp=1&sender_device=pc"
+                                    target="_blank"
+                                    style="background-color: black;  border-color: transparent;"
+                                    >TikTok</a
+                                  >
+                                </td>
+                                <td>
+                                  <a
+                                    href="https://youtube.com/@hmyc1964?si=kFcXnxxgUZ4UJyP7"
+                                    target="_blank"
+                                    style="background: red; border-color: transparent;"
+                                    >YouTube</a
                                   >
                                 </td>
                               </tr>
                             </tbody>
                           </table>
-                        </td>
+                        </td>             
                       </tr>
                     </tbody>
                   </table>
@@ -423,5 +440,5 @@ export const sendEmail = (name, age, education, email, phone) =>
       </tr>
     </table>
   </body>
-</html>
-  `);
+</html>`)
+
