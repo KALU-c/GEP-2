@@ -42,7 +42,7 @@ async function createUser(userData) {
   try {
     await newUser.save();
     console.log("User added successfully!");
-    await sendConfirmationEmail(userData.email, userData.name);
+    await sendConfirmationEmail(userData.email, userData.name, userData.phone, userData.age, userData.education);
   } catch(err) {
     console.log(err);
   }
